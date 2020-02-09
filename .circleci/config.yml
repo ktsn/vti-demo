@@ -1,0 +1,45 @@
+version: 2.1
+
+executors:
+  node:
+    docker:
+      - image: circleci/node:12
+
+commands:
+  restore_deps_cache:
+    steps:
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+  install_deps:
+    steps:
+      - run: yarn install --frozen-lockfile
+
+  save_deps_cache:
+    steps:
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+jobs:
+  build:
+    executor: node
+    steps:
+      - checkout
+      - restore_deps_cache
+      - install_deps
+      - save_deps_cache
+      - run: yarn build
+
+  template-diagnostics:
+    executor: node
+    steps:
+      - checkout
+      - restore_deps_cache
+      - install_deps
+      - save_deps_cache
+      - run: yarn diagnostics
