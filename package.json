@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "vti": "vti diagnostics"
   },
   "dependencies": {
     "vue": "^2.6.11"
@@ -13,6 +14,7 @@
     "@vue/cli-plugin-typescript": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "typescript": "~3.7.5",
+    "vti": "^0.0.2",
     "vue-template-compiler": "^2.6.11"
   }
 }
