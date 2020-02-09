@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from 'vue'
 import store from './store'
 
 export default Vue.extend({
@@ -19,7 +19,7 @@ export default Vue.extend({
   methods: {
     increment: store.increment
   }
-});
+})
 </script>
 
 <style>

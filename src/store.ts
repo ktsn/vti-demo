@@ -1,17 +1,17 @@
-import Vue from "vue";
+import Vue from 'vue'
 
 const state = Vue.observable({
   count: 0
-});
+})
 
 const store = {
   get state() {
-    return state;
+    return state
   },
 
   increment() {
-    state.count++;
+    state.count++
   }
-};
+}
 
-export default store;
+export default store
