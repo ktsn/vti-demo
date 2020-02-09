@@ -49,4 +49,4 @@ workflows:
   build_and_diagnostics:
     jobs:
       - build
-      - template-diagnostics
+      # - template-diagnostics

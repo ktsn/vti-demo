@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <output>{{ state.count }}</output>
+    <button type="button" @click="increment">+1</button>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import store from './store'
 
 export default Vue.extend({
   name: 'App',
-  components: {
-    HelloWorld
+
+  computed: {
+    state: () => store.state
+  },
+
+  methods: {
+    increment: store.increment
   }
 });
 </script>
@@ -25,5 +30,27 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+output {
+  display: block;
+  font-weight: bold;
+  font-size: 64px;
+}
+
+button {
+  display: inline-block;
+  padding: 4px 18px;
+  background-color: #373737;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+button:hover {
+  background-color: #7d7d7d;
 }
 </style>
