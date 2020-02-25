@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 const state = Vue.observable({
-  count: 0
+  value: 0
 })
 
 const store = {
@@ -10,7 +10,7 @@ const store = {
   },
 
   increment() {
-    state.count++
+    state.value++
   }
 }
 
